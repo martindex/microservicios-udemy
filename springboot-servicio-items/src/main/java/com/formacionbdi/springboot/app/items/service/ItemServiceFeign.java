@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.formacionbdi.springboot.app.items.clients.ProductoClientRest;
 import com.formacionbdi.springboot.app.items.models.Item;
+import com.formacionbdi.springboot.app.items.models.Producto;
 
 @Service("serviceFeign")
 public class ItemServiceFeign implements ItemService{
@@ -25,5 +26,20 @@ public class ItemServiceFeign implements ItemService{
     @Override
     public Item findById(Long id, Integer cantidad) {
         return new Item(productoClientRest.detalle(id), cantidad);
+    }
+
+    @Override
+    public Producto save(Producto producto) {
+        return null;
+    }
+
+    @Override
+    public Producto update(Producto producto, Long id) {
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+
     }
 }
