@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import com.formacionbdi.springboot.app.items.models.Item;
 import com.formacionbdi.springboot.app.items.models.Producto;
 
-@Service("serviceRestTemplate")
+@Service
 public class ItemServiceImpl implements ItemService{
 
     private final RestTemplate clientRestTemplate;

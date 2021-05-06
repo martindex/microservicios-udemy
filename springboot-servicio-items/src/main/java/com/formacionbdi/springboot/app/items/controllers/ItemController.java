@@ -33,7 +33,7 @@ public class ItemController {
     private String texto;
 
     @Autowired
-    public ItemController(@Qualifier("serviceRestTemplate") ItemService itemService) {
+    public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
 
