@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.formacionbdi.springboot.app.items.models.Producto;
+import com.formacionbdi.springboot.app.commons.models.entity.Producto;
 
 @FeignClient(name = "servicio-productos")
 @RequestMapping("/producto")

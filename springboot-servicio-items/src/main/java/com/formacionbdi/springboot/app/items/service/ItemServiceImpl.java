@@ -1,6 +1,5 @@
 package com.formacionbdi.springboot.app.items.service;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +11,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import com.formacionbdi.springboot.app.commons.models.entity.Producto;
 import com.formacionbdi.springboot.app.items.models.Item;
-import com.formacionbdi.springboot.app.items.models.Producto;
 
 @Service
 public class ItemServiceImpl implements ItemService{
