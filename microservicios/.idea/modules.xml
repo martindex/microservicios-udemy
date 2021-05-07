@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-commons/springboot-servicio-commons.iml" filepath="$PROJECT_DIR$/../springboot-servicio-commons/springboot-servicio-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-config-server/springboot-servicio-config-server.iml" filepath="$PROJECT_DIR$/../springboot-servicio-config-server/springboot-servicio-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-eureka/springboot-servicio-eureka.iml" filepath="$PROJECT_DIR$/../springboot-servicio-eureka/springboot-servicio-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-items/springboot-servicio-items.iml" filepath="$PROJECT_DIR$/../springboot-servicio-items/springboot-servicio-items.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-productos/springboot-servicio-productos.iml" filepath="$PROJECT_DIR$/../springboot-servicio-productos/springboot-servicio-productos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-users-app/springboot-servicio-users-app.iml" filepath="$PROJECT_DIR$/../springboot-servicio-users-app/springboot-servicio-users-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-users-app/springboot-servicio-users-app-commons/springboot-servicio-users-app-commons.iml" filepath="$PROJECT_DIR$/../springboot-servicio-users-app/springboot-servicio-users-app-commons/springboot-servicio-users-app-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-zuul/springboot-servicio-zuul.iml" filepath="$PROJECT_DIR$/../springboot-servicio-zuul/springboot-servicio-zuul.iml" />
+    </modules>
+  </component>
+</project>
