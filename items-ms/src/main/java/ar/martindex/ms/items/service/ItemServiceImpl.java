@@ -26,7 +26,7 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public List<Item> findAll() {
-        List<Producto> list = Arrays.asList(clientRestTemplate.getForObject("http://servicio-productos/producto/listar", Producto[].class));
+        List<Producto> list = Arrays.asList(clientRestTemplate.getForObject("http://productos-ms/producto/listar", Producto[].class));
         return list.stream().map(p-> new Item(p,1)).collect(Collectors.toList());
     }
 
@@ -34,14 +34,14 @@ public class ItemServiceImpl implements ItemService{
     public Item findById(Long id, Integer cantidad) {
         Map<String, String> mapPathVariables = new HashMap<String, String>();
         mapPathVariables.put("id", id.toString());
-        Producto producto = clientRestTemplate.getForObject("http://servicio-productos/producto/ver/{id}", Producto.class, mapPathVariables);
+        Producto producto = clientRestTemplate.getForObject("http://productos-ms/producto/ver/{id}", Producto.class, mapPathVariables);
         return new Item(producto, cantidad);
     }
 
     @Override
     public Producto save(Producto producto) {
         HttpEntity<Producto> body = new HttpEntity<>(producto);
-        ResponseEntity<Producto> response = clientRestTemplate.exchange("http://servicio-productos/producto/crear", HttpMethod.POST, body, Producto.class);
+        ResponseEntity<Producto> response = clientRestTemplate.exchange("http://productos-ms/producto/crear", HttpMethod.POST, body, Producto.class);
         return response.getBody();
     }
 
@@ -51,7 +51,7 @@ public class ItemServiceImpl implements ItemService{
         Map<String, String> mapPathVariables = new HashMap<String, String>();
         mapPathVariables.put("id", id.toString());
         ResponseEntity<Producto> response = clientRestTemplate.exchange(
-                "http://servicio-productos/producto/editar/{id}", HttpMethod.PUT, body, Producto.class, mapPathVariables);
+                "http://productos-ms/producto/editar/{id}", HttpMethod.PUT, body, Producto.class, mapPathVariables);
         return response.getBody();
     }
 
@@ -59,6 +59,6 @@ public class ItemServiceImpl implements ItemService{
     public void delete(Long id) {
         Map<String, String> mapPathVariables = new HashMap<String, String>();
         mapPathVariables.put("id", id.toString());
-        clientRestTemplate.delete("http://servicio-productos/producto/eliminar/{id}", mapPathVariables);
+        clientRestTemplate.delete("http://productos-ms/producto/eliminar/{id}", mapPathVariables);
     }
 }
