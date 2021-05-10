@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server-ms" />
+        <module name="users-app-ms" />
+        <module name="zuul-server-ms" />
+        <module name="eureka-server-ms" />
+        <module name="productos-ms" />
+        <module name="commons-ms" />
+        <module name="items-ms" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="commons-ms" target="1.8" />
+      <module name="config-server-ms" target="1.8" />
+      <module name="eureka-server-ms" target="1.8" />
+      <module name="items-ms" target="1.8" />
+      <module name="productos-ms" target="1.8" />
+      <module name="users-app-ms" target="1.8" />
+      <module name="zuul-server-ms" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="commons-ms" options="-parameters" />
+      <module name="config-server-ms" options="-parameters" />
+      <module name="eureka-server-ms" options="-parameters" />
+      <module name="items-ms" options="-parameters" />
+      <module name="productos-ms" options="-parameters" />
+      <module name="users-app-ms" options="-parameters" />
+      <module name="zuul-server-ms" options="-parameters" />
+    </option>
+  </component>
+</project>
