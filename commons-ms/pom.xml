@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ar.martindex.ms.commons</groupId>
-    <artifactId>springboot-servicio-commons</artifactId>
+    <artifactId>commons-ms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>commons-ms</name>
     <description>Demo project for Spring Boot</description>
