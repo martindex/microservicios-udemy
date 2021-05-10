@@ -1,10 +1,10 @@
-package com.formacionbdi.springboot.app.eureka;
+package ar.martindex.ms.eureka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootServicioEurekaApplicationTests {
+class EurekaMsApplicationTests {
 
 	@Test
 	void contextLoads() {

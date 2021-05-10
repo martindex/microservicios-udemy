@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-commons/commons-ms.iml" filepath="$PROJECT_DIR$/../springboot-servicio-commons/commons-ms.iml" />
       <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-config-server/config-server-ms.iml" filepath="$PROJECT_DIR$/../springboot-servicio-config-server/config-server-ms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-eureka/springboot-servicio-eureka.iml" filepath="$PROJECT_DIR$/../springboot-servicio-eureka/springboot-servicio-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-eureka/eureka-ms.iml" filepath="$PROJECT_DIR$/../springboot-servicio-eureka/eureka-ms.iml" />
       <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-items/springboot-servicio-items.iml" filepath="$PROJECT_DIR$/../springboot-servicio-items/springboot-servicio-items.iml" />
       <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-productos/springboot-servicio-productos.iml" filepath="$PROJECT_DIR$/../springboot-servicio-productos/springboot-servicio-productos.iml" />
       <module fileurl="file://$PROJECT_DIR$/../springboot-servicio-users-app/springboot-servicio-users-app.iml" filepath="$PROJECT_DIR$/../springboot-servicio-users-app/springboot-servicio-users-app.iml" />
