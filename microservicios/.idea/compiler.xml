@@ -7,30 +7,30 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-servicio-productos" />
-        <module name="springboot-servicio-config-server" />
+        <module name="config-server-ms" />
         <module name="springboot-servicio-users-app" />
         <module name="springboot-servicio-users-app-commons" />
-        <module name="springboot-servicio-commons" />
         <module name="springboot-servicio-eureka" />
+        <module name="commons-ms" />
         <module name="springboot-servicio-items" />
         <module name="springboot-servicio-zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="springboot-servicio-commons" target="1.8" />
-      <module name="springboot-servicio-config-server" target="1.8" />
-      <module name="springboot-servicio-eureka" target="1.8" />
-      <module name="springboot-servicio-items" target="1.8" />
-      <module name="springboot-servicio-productos" target="1.8" />
-      <module name="springboot-servicio-users-app" target="1.8" />
-      <module name="springboot-servicio-users-app-commons" target="1.8" />
-      <module name="springboot-servicio-zuul" target="1.8" />
+      <module name="commons-ms" target="1.5" />
+      <module name="config-server-ms" target="1.5" />
+      <module name="springboot-servicio-eureka" target="1.5" />
+      <module name="springboot-servicio-items" target="1.5" />
+      <module name="springboot-servicio-productos" target="1.5" />
+      <module name="springboot-servicio-users-app" target="1.5" />
+      <module name="springboot-servicio-users-app-commons" target="1.5" />
+      <module name="springboot-servicio-zuul" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="springboot-servicio-commons" options="-parameters" />
-      <module name="springboot-servicio-config-server" options="-parameters" />
+      <module name="commons-ms" options="-parameters" />
+      <module name="config-server-ms" options="-parameters" />
       <module name="springboot-servicio-eureka" options="-parameters" />
       <module name="springboot-servicio-items" options="-parameters" />
       <module name="springboot-servicio-productos" options="-parameters" />
