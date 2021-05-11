@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/../productos-ms/pom.xml" />
         <option value="$PROJECT_DIR$/../users-app-ms/pom.xml" />
         <option value="$PROJECT_DIR$/../items-ms/pom.xml" />
+        <option value="$PROJECT_DIR$/../commons-users-app-ms/pom.xml" />
       </list>
     </option>
   </component>

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import ar.martindex.ms.commons.models.entity.Producto;
+import ar.martindex.ms.commons.models.entities.Producto;
 import ar.martindex.ms.items.models.Item;
 import ar.martindex.ms.items.service.ItemService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;

@@ -1,6 +1,6 @@
 package ar.martindex.ms.items.models;
 
-import ar.martindex.ms.commons.models.entity.Producto;
+import ar.martindex.ms.commons.models.entities.Producto;
 
 public class Item {
 

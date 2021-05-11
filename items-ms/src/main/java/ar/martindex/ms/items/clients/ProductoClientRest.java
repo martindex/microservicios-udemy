@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ar.martindex.ms.commons.models.entity.Producto;
+import ar.martindex.ms.commons.models.entities.Producto;
 
 @FeignClient(name = "productos-ms")
 @RequestMapping("/producto")

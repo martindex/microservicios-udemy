@@ -1,7 +1,7 @@
 package ar.martindex.ms.items.service;
 
 import java.util.List;
-import ar.martindex.ms.commons.models.entity.Producto;
+import ar.martindex.ms.commons.models.entities.Producto;
 import ar.martindex.ms.items.models.Item;
 
 public interface ItemService {

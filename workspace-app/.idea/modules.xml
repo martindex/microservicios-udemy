@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../commons-ms/commons-ms.iml" filepath="$PROJECT_DIR$/../commons-ms/commons-ms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../commons-users-app-ms/commons-users-app-ms.iml" filepath="$PROJECT_DIR$/../commons-users-app-ms/commons-users-app-ms.iml" />
       <module fileurl="file://$PROJECT_DIR$/../config-server-ms/config-server-ms.iml" filepath="$PROJECT_DIR$/../config-server-ms/config-server-ms.iml" />
       <module fileurl="file://$PROJECT_DIR$/../eureka-server-ms/eureka-server-ms.iml" filepath="$PROJECT_DIR$/../eureka-server-ms/eureka-server-ms.iml" />
       <module fileurl="file://$PROJECT_DIR$/../items-ms/items-ms.iml" filepath="$PROJECT_DIR$/../items-ms/items-ms.iml" />

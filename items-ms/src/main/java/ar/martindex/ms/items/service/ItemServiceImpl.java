@@ -11,7 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ar.martindex.ms.commons.models.entity.Producto;
+import ar.martindex.ms.commons.models.entities.Producto;
 import ar.martindex.ms.items.models.Item;
 
 @Service

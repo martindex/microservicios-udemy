@@ -1,4 +1,4 @@
-package ar.martindex.ms.users.models.entities;
+package ar.martindex.ms.commons.models.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

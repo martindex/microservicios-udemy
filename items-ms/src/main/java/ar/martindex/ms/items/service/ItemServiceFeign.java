@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import ar.martindex.ms.commons.models.entity.Producto;
+import ar.martindex.ms.commons.models.entities.Producto;
 import ar.martindex.ms.items.clients.ProductoClientRest;
 import ar.martindex.ms.items.models.Item;
 
