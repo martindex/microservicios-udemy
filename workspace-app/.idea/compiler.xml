@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config-server-ms" />
         <module name="users-app-ms" />
+        <module name="oauth-ms" />
         <module name="zuul-server-ms" />
         <module name="commons-users-app-ms" />
         <module name="eureka-server-ms" />
@@ -24,6 +25,7 @@
       <module name="config-server-ms" target="1.8" />
       <module name="eureka-server-ms" target="1.8" />
       <module name="items-ms" target="1.8" />
+      <module name="oauth-ms" target="1.8" />
       <module name="productos-ms" target="1.8" />
       <module name="users-app-ms" target="1.8" />
       <module name="zuul-server-ms" target="1.8" />
@@ -38,6 +40,7 @@
       <module name="config-server-ms" options="-parameters" />
       <module name="eureka-server-ms" options="-parameters" />
       <module name="items-ms" options="-parameters" />
+      <module name="oauth-ms" options="-parameters" />
       <module name="productos-ms" options="-parameters" />
       <module name="users-app-ms" options="-parameters" />
       <module name="zuul-server-ms" options="-parameters" />

@@ -6,7 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 import ar.martindex.ms.commons.models.entities.UserApp;
 
-@RepositoryRestResource(path = "usersapp")
+@RepositoryRestResource(path = "users-app")
 public interface UserAppRepository extends PagingAndSortingRepository<UserApp, Long> {
     @RestResource(path = "find-by-username")
     public UserApp findByUsername(@Param("user") String username);
