@@ -1,9 +1,12 @@
 package ar.martindex.ms.zuul.oauth;
 
+import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -11,6 +14,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @RefreshScope
@@ -47,7 +54,28 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                         "/api/items-ms/**",
                         "/api/users-app-ms/**")
                 .hasRole("ADMIN") // todos los endpoints restantes que no estan especificados anteriormente solo lo pueden usar el administrador
-                .anyRequest().authenticated(); // para cualquier otra ruta, autenticar
+                .anyRequest().authenticated() // para cualquier otra ruta, autenticar
+                .and().cors().configurationSource(buildCorsConfigurationSource());
+    }
+
+    @Bean
+    public CorsConfigurationSource buildCorsConfigurationSource() {
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowedOrigins(Arrays.asList("*")); // que origenes nos consultan, con * puede usar cualquiera
+        corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
+        corsConfiguration.setAllowCredentials(true);
+        corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
+        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
+        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
+        return urlBasedCorsConfigurationSource;
+    }
+
+    @Bean
+    public FilterRegistrationBean<CorsFilter> buildCorsFilter(){
+        FilterRegistrationBean<CorsFilter> filterFilterRegistrationBean = new FilterRegistrationBean<>(
+                new CorsFilter(buildCorsConfigurationSource()));
+        filterFilterRegistrationBean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        return filterFilterRegistrationBean;
     }
 
     @Bean
