@@ -1,5 +1,7 @@
 package ar.martindex.ms.zuul.oauth;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -11,8 +13,15 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
+@RefreshScope
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+
+    private final String jwtKey;
+
+    public ResourceServerConfig(@Value("${config.security.oauth.jwt.key}") String jwtKey) {
+        this.jwtKey = jwtKey;
+    }
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -49,7 +58,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter buildAccessTokenConverter() {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        jwtAccessTokenConverter.setSigningKey("codigo_secreto");
+        jwtAccessTokenConverter.setSigningKey(jwtKey);
         return jwtAccessTokenConverter;
     }
 }

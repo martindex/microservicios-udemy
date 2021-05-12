@@ -2,6 +2,8 @@ package ar.martindex.ms.oauth.security;
 
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +18,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
+@RefreshScope
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
@@ -23,11 +26,24 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private final AuthenticationManager authenticationManager;
     private final InfoToken infoToken;
 
+    private final String clientId;
+    private final String clientSecret;
+    private final String jwtKey;
+
     @Autowired
-    public AuthorizationServerConfig(BCryptPasswordEncoder bCryptPasswordEncoder, AuthenticationManager authenticationManager, InfoToken infoToken) {
+    public AuthorizationServerConfig(
+            BCryptPasswordEncoder bCryptPasswordEncoder,
+            AuthenticationManager authenticationManager,
+            InfoToken infoToken,
+            @Value("${config.security.oauth.client.id}") String clientId,
+            @Value("${config.security.oauth.client.secret}") String clientSecret,
+            @Value("${config.security.oauth.jwt.key}") String jwtKey) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.authenticationManager = authenticationManager;
         this.infoToken = infoToken;
+        this.clientId = clientId;
+        this.clientSecret = clientSecret;
+        this.jwtKey = jwtKey;
     }
 
     @Override
@@ -39,8 +55,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("frontendapp")
-                .secret(bCryptPasswordEncoder.encode("123456"))
+                .withClient(clientId)
+                .secret(bCryptPasswordEncoder.encode(clientSecret))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh")
                 .accessTokenValiditySeconds(3600)
@@ -71,7 +87,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public JwtAccessTokenConverter buildAccessTokenConverter() {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        jwtAccessTokenConverter.setSigningKey("codigo_secreto");
+        jwtAccessTokenConverter.setSigningKey(jwtKey);
         return jwtAccessTokenConverter;
     }
 }

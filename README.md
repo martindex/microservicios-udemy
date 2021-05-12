@@ -6,8 +6,8 @@ http://localhost:8081/api/oauth-ms/oauth/token
 Authorization:
 --------------
 Basic Auth
-Username: frontendapp
-Password: 123456
+Username: martindex.app
+Password: martindex.secret
 
 Body - x-www-form-urlencoded
 --------
