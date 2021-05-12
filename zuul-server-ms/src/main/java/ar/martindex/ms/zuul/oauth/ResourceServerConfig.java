@@ -16,9 +16,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        jwtAccessTokenConverter.setSigningKey("codigo_secreto");
-        resources.tokenStore(new JwtTokenStore(jwtAccessTokenConverter)); //protegemos el token
+        resources.tokenStore(buildTokenStore()); //protegemos el token
     }
 
     @Override
@@ -42,7 +40,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .hasRole("ADMIN") // todos los endpoints restantes que no estan especificados anteriormente solo lo pueden usar el administrador
                 .anyRequest().authenticated(); // para cualquier otra ruta, autenticar
     }
-/*
+
     @Bean
     public JwtTokenStore buildTokenStore() {
         return new JwtTokenStore(buildAccessTokenConverter());
@@ -53,5 +51,5 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
         jwtAccessTokenConverter.setSigningKey("codigo_secreto");
         return jwtAccessTokenConverter;
-    }*/
+    }
 }
