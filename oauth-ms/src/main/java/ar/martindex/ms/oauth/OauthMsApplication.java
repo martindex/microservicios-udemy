@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import ar.martindex.ms.oauth.servicies.UserAppService;
 
 @EnableFeignClients
 @EnableEurekaClient
