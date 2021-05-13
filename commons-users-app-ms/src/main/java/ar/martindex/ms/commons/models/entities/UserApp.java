@@ -32,6 +32,7 @@ public class UserApp implements Serializable {
     private String lastName;
     @Column(unique = true, length = 100)
     private String email;
+    private Integer intents;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -106,6 +107,14 @@ public class UserApp implements Serializable {
         this.email = email;
     }
 
+    public Integer getIntents() {
+        return intents;
+    }
+
+    public void setIntents(Integer intents) {
+        this.intents = intents;
+    }
+
     public List<Role> getRoles() {
         return roles;
     }
@@ -113,4 +122,5 @@ public class UserApp implements Serializable {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
+
 }

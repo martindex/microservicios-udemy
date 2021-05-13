@@ -62,4 +62,9 @@ public class UserAppServiceImpl implements UserAppService, UserDetailsService {
     public UserApp findByUsername(String username) {
         return userAppFeignClient.findByUsername(username);
     }
+
+    @Override
+    public UserApp update(UserApp userApp, Long id) {
+        return userAppFeignClient.update(userApp, id);
+    }
 }
