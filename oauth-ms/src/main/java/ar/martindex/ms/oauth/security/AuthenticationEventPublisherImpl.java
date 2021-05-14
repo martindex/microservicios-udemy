@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import ar.martindex.ms.commons.models.entities.UserApp;
 import ar.martindex.ms.oauth.servicies.UserAppService;
+import brave.Tracer;
 import feign.FeignException;
 
 @Component
@@ -19,10 +20,12 @@ public class AuthenticationEventPublisherImpl implements AuthenticationEventPubl
     private Logger logger = LoggerFactory.getLogger(AuthenticationEventPublisherImpl.class);
 
     private final UserAppService userAppService;
+    private final Tracer tracer;
 
     @Autowired
-    public AuthenticationEventPublisherImpl(UserAppService userAppService) {
+    public AuthenticationEventPublisherImpl(UserAppService userAppService, Tracer tracer) {
         this.userAppService = userAppService;
+        this.tracer = tracer;
     }
 
     @Override
@@ -40,21 +43,30 @@ public class AuthenticationEventPublisherImpl implements AuthenticationEventPubl
 
     @Override
     public void publishAuthenticationFailure(AuthenticationException exception, Authentication authentication) {
+
+        StringBuilder buildError = new StringBuilder();
+
         logger.error("Error login: " + exception.getMessage());
+        buildError.append("Error login: " + exception.getMessage());
         try {
             UserApp userApp = userAppService.findByUsername(authentication.getName());
             if(!userApp.getEnabled()){
                 logger.error("Disabled user: {}", authentication.getName());
+                buildError.append("Disabled user: " + authentication.getName());
+                tracer.currentSpan().tag("error.message",buildError.toString());
                 return;
             }
             userApp.setIntents(userApp.getIntents()+1);
             logger.info("Intents count: {}", userApp.getIntents());
+            buildError.append("Intents count: " + userApp.getIntents());
             if(userApp.getIntents()>=3){
                 userApp.setEnabled(false);
             }
             userAppService.update(userApp, userApp.getId());
+            tracer.currentSpan().tag("error.message",buildError.toString());
         } catch (FeignException e){
             logger.error("Error feign: {}", e.getMessage());
+            tracer.currentSpan().tag("Error feign: {}", e.getMessage());
         }
     }
 }

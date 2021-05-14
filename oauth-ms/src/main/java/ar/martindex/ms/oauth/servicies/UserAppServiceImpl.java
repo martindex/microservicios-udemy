@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ar.martindex.ms.commons.models.entities.UserApp;
 import ar.martindex.ms.oauth.clients.UserAppFeignClient;
+import brave.Tracer;
 import feign.FeignException;
 
 @Service
@@ -22,10 +23,12 @@ public class UserAppServiceImpl implements UserAppService, UserDetailsService {
     private Logger logger = LoggerFactory.getLogger(UserAppServiceImpl.class);
 
     private final UserAppFeignClient userAppFeignClient;
+    private final Tracer tracer;
 
     @Autowired
-    public UserAppServiceImpl(UserAppFeignClient userAppFeignClient) {
+    public UserAppServiceImpl(UserAppFeignClient userAppFeignClient, Tracer tracer) {
         this.userAppFeignClient = userAppFeignClient;
+        this.tracer = tracer;
     }
 
     @Override
@@ -43,6 +46,7 @@ public class UserAppServiceImpl implements UserAppService, UserDetailsService {
             return buildUserSpringBootSecurity(userApp, authorities);
         } catch (FeignException e) {
             logger.error("user not exist: {}", username);
+            tracer.currentSpan().tag("error.message","user not exist " + username);
             throw new UsernameNotFoundException("user not exist " + username);
         }
 
